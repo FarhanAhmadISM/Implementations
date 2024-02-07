@@ -1,0 +1,6 @@
+org/example/Document.class
+org/example/Main.class
+org/example/dataset/NormalDataset.class
+org/example/searchEngine/NormalSearchEngine.class
+org/example/searchEngine/SearchEngine.class
+org/example/dataset/Dataset.class
