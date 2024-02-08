@@ -19,7 +19,7 @@ public class DoubleLinkedList<Element> {
         }
     }
 
-    public void addNodeAtLast(Element key) {
+    public DoubleLinkedListNode<Element> addNodeAtLast(Element key) {
         if(key != null) {
             DoubleLinkedListNode<Element> newNode = new DoubleLinkedListNode<>(key);
             DoubleLinkedListNode<Element> tailPrev = dummyTail.prev;
@@ -28,7 +28,9 @@ public class DoubleLinkedList<Element> {
             newNode.next = dummyTail;
             dummyTail.prev = newNode;
             newNode.prev = tailPrev;
+            return newNode;
         }
+        return null;
     }
 
     public DoubleLinkedListNode<Element> getFirstNode() {
