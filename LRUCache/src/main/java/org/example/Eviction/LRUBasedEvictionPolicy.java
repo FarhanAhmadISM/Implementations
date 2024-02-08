@@ -16,15 +16,23 @@ public class LRUBasedEvictionPolicy<Key> implements EvictionPolicy<Key>{
 
     @Override
     public void keyAccessed(Key key) {
-        DoubleLinkedListNode<Key> doubleLinkedListNode = map.get(key);
-        dll.deleteNode(doubleLinkedListNode);
-        dll.addNodeAtLast(key);
+        if (map.containsKey(key)) {
+            DoubleLinkedListNode<Key> doubleLinkedListNode = map.get(key);
+            dll.deleteNode(doubleLinkedListNode);
+            dll.addNodeAtLast(key);
+        } else {
+            DoubleLinkedListNode<Key> newNode = dll.addNodeAtLast(key);
+            map.put(key, newNode);
+        }
     }
 
     @Override
     public Key evictKey() {
         DoubleLinkedListNode<Key> node = dll.getFirstNode();
         dll.deleteNode(node);
+        if (node != null) {
+            map.remove(node.element);
+        }
         return node == null ? null : node.element;
     }
 }

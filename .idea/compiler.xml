@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="InMemoryDB" />
+        <module name="LRUCache" />
+        <module name="SearchEngine" />
       </profile>
     </annotationProcessing>
   </component>
